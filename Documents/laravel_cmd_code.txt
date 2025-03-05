@@ -1,0 +1,4 @@
+php artisan serve //Run server
+php artisan make:model Models/Post -m # Post là model bài viết
+php artisan migrate //Chạy migrate
+php artisan route:list //Quản lý route
