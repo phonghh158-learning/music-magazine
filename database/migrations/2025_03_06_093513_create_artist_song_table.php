@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('songs', function (Blueprint $table) {
+        Schema::create('artist_song', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->foreignId('album_id')->nullable()->constrained('albums')->onDelete('cascade');
-            $table->integer('duration')->nullable();
+            $table->foreignId('artist_id')->constrained('artists')->onDelete('cascade');
+            $table->foreignId('song_id')->constrained('songs')->onDelete('cascade');
+            $table->enum('role', ['singer', 'composer', 'producer'])->default('singer');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('songs');
+        Schema::dropIfExists('artist_song');
     }
 };

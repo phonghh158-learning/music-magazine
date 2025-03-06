@@ -38,3 +38,14 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('/news/{news}/approve', 'NewsController@approve');
 });
 
+//GET
+Route::get('/artists', [ArtistController::class, 'index']);
+Route::get('/artists/{id}', [ArtistController::class, 'show']);
+
+Route::get('/songs', [SongController::class, 'index']);
+Route::get('/songs/{id}', [SongController::class, 'show']);
+
+Route::get('/albums', [AlbumController::class, 'index']);
+Route::get('/albums/{id}', [AlbumController::class, 'show']);
+
+
